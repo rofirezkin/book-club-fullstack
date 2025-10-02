@@ -1,0 +1,17 @@
+services:
+  # PostgreSQL database service used by the backend.  It exposes port 5432 on the host
+  # so the API and migration scripts can connect via the standard Postgres port.  A
+  # named volume keeps your data between container restarts.  The default database,
+  # user and password can be customised via environment variables.  See the README
+  # for more details.
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: bookclub
+      POSTGRES_USER: bookclub_user
+      POSTGRES_PASSWORD: bookclub_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/postgres-data:/var/lib/postgresql/data

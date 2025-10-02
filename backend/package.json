@@ -1,0 +1,31 @@
+{
+  "name": "bookclub-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Fastify + TypeScript API for the book club application",
+  "main": "build/server.js",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node build/server.js",
+    "migrate": "prisma migrate deploy",
+    "migrate:dev": "prisma migrate dev --name init",
+    "generate": "prisma generate",
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.1.0",
+    "@prisma/client": "^6.16.3",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.6.1",
+    "fastify-plugin": "^5.1.0",
+    "fastify-sensible": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "prisma": "^6.16.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
